@@ -11,13 +11,13 @@ import Observation
 protocol IStore {
     
     associatedtype TAction: Action
-    associatedtype TState: State
+    associatedtype TState: IState
     
     func send(action: TAction)
 }
 
 /// Реализация стора
-@Observable final class DefaultStore<TState: State, TAction: Action>: IStore {
+@Observable final class DefaultStore<TState: IState, TAction: Action>: IStore {
     
     // MARK: Props
     private let reducer: Reducer<TState, TAction>

@@ -1,0 +1,15 @@
+//
+//  MainScreenActions.swift
+//  Crypto Monitor
+//
+//  Created by Kiselev Ilya on 13.03.2024.
+//
+
+enum MainScreenActions: Action {
+    
+    case none
+    case fetchCurrencies
+    case selectCurrency
+    case updateCurrencies
+    case searchCurrency(text: String)
+}
