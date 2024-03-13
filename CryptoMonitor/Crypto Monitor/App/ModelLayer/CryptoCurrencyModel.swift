@@ -13,7 +13,7 @@ struct CryptoCurrencyModel: Decodable {
     let rank: String
     let symbol: String
     let name: String
-    let supply: Decimal
-    let marketCapUsd: Decimal
-    let priceUsd: Decimal
+    let supply: String
+    let marketCapUsd: String
+    let priceUsd: String
 }

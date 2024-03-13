@@ -8,8 +8,8 @@
 enum MainScreenActions: Action {
     
     case none
-    case fetchCurrencies
-    case selectCurrency
+    case fetchCurrencies(currencies: [CryptoCurrencyModel])
+    case selectCurrency(id: String)
     case updateCurrencies
     case searchCurrency(text: String)
 }

@@ -16,6 +16,7 @@
 		F4BEE9E02BA1E02700D3583D /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BEE9DF2BA1E02700D3583D /* MainScreenView.swift */; };
 		F4BEE9E32BA1E18E00D3583D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BEE9E22BA1E18E00D3583D /* AppState.swift */; };
 		F4BEE9E52BA1E1D800D3583D /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BEE9E42BA1E1D800D3583D /* AppAction.swift */; };
+		F4BEE9E72BA2197900D3583D /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BEE9E62BA2197900D3583D /* ApiResponse.swift */; };
 		F4EAF0B22BA1A1B800F127A0 /* CryptoMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0B12BA1A1B800F127A0 /* CryptoMonitorApp.swift */; };
 		F4EAF0B42BA1A1B800F127A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0B32BA1A1B800F127A0 /* ContentView.swift */; };
 		F4EAF0B62BA1A1B800F127A0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0B52BA1A1B800F127A0 /* Item.swift */; };
@@ -59,6 +60,7 @@
 		F4BEE9DF2BA1E02700D3583D /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		F4BEE9E22BA1E18E00D3583D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F4BEE9E42BA1E1D800D3583D /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		F4BEE9E62BA2197900D3583D /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		F4EAF0AE2BA1A1B800F127A0 /* Crypto Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EAF0B12BA1A1B800F127A0 /* CryptoMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMonitorApp.swift; sourceTree = "<group>"; };
 		F4EAF0B32BA1A1B800F127A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				F4EAF0B52BA1A1B800F127A0 /* Item.swift */,
 				F4EAF0F42BA1B51F00F127A0 /* CryptoCurrencyModel.swift */,
+				F4BEE9E62BA2197900D3583D /* ApiResponse.swift */,
 			);
 			path = ModelLayer;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				F4BEE9DA2BA1DF1A00D3583D /* MainScreenState.swift in Sources */,
 				F4EAF0F12BA1A9EE00F127A0 /* BussinessLogicErrors.swift in Sources */,
 				F4BEE9E52BA1E1D800D3583D /* AppAction.swift in Sources */,
+				F4BEE9E72BA2197900D3583D /* ApiResponse.swift in Sources */,
 				F4EAF0EB2BA1A6AA00F127A0 /* Request.swift in Sources */,
 				F4BEE9E02BA1E02700D3583D /* MainScreenView.swift in Sources */,
 				F4EAF0B62BA1A1B800F127A0 /* Item.swift in Sources */,

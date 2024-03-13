@@ -12,15 +12,15 @@ import Foundation
 protocol ICryptoMonitorService {
     
     /// Get запрос
-    func fetch<TResult>(url: String) async throws -> RequestResult<TResult> where TResult : Decodable
+    func fetch<TResult>(url: String, result: TResult.Type) async throws -> RequestResult<TResult> where TResult : Decodable
 }
 
 // MARK: - CryptoMonitorService
 final class CryptoMonitorService: ICryptoMonitorService {
     
     // MARK: Public methods
-    func fetch<TResult>(url: String) async throws -> RequestResult<TResult> where TResult : Decodable {
-        try await buildRequest(url: url, method: .get, result: TResult.self).execute()
+    func fetch<TResult>(url: String, result: TResult.Type) async throws -> RequestResult<TResult> where TResult : Decodable {
+        try await buildRequest(url: url, method: .get, result: result).execute()
     }
     
     // MARK: Private methods
