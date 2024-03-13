@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F4EAF0B22BA1A1B800F127A0 /* Crypto_MonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0B12BA1A1B800F127A0 /* Crypto_MonitorApp.swift */; };
+		F4EAF0B22BA1A1B800F127A0 /* CryptoMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0B12BA1A1B800F127A0 /* CryptoMonitorApp.swift */; };
 		F4EAF0B42BA1A1B800F127A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0B32BA1A1B800F127A0 /* ContentView.swift */; };
 		F4EAF0B62BA1A1B800F127A0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0B52BA1A1B800F127A0 /* Item.swift */; };
 		F4EAF0B82BA1A1B900F127A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EAF0B72BA1A1B900F127A0 /* Assets.xcassets */; };
@@ -15,6 +15,10 @@
 		F4EAF0C52BA1A1B900F127A0 /* Crypto_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0C42BA1A1B900F127A0 /* Crypto_MonitorTests.swift */; };
 		F4EAF0CF2BA1A1B900F127A0 /* Crypto_MonitorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0CE2BA1A1B900F127A0 /* Crypto_MonitorUITests.swift */; };
 		F4EAF0D12BA1A1B900F127A0 /* Crypto_MonitorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0D02BA1A1B900F127A0 /* Crypto_MonitorUITestsLaunchTests.swift */; };
+		F4EAF0E32BA1A41500F127A0 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F4EAF0E22BA1A41500F127A0 /* AsyncAlgorithms */; };
+		F4EAF0EB2BA1A6AA00F127A0 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0EA2BA1A6AA00F127A0 /* Request.swift */; };
+		F4EAF0EE2BA1A71A00F127A0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F4EAF0ED2BA1A71A00F127A0 /* Alamofire */; };
+		F4EAF0F12BA1A9EE00F127A0 /* BussinessLogicErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EAF0F02BA1A9EE00F127A0 /* BussinessLogicErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		F4EAF0AE2BA1A1B800F127A0 /* Crypto Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4EAF0B12BA1A1B800F127A0 /* Crypto_MonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto_MonitorApp.swift; sourceTree = "<group>"; };
+		F4EAF0B12BA1A1B800F127A0 /* CryptoMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMonitorApp.swift; sourceTree = "<group>"; };
 		F4EAF0B32BA1A1B800F127A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F4EAF0B52BA1A1B800F127A0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F4EAF0B72BA1A1B900F127A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 		F4EAF0CA2BA1A1B900F127A0 /* Crypto MonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crypto MonitorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EAF0CE2BA1A1B900F127A0 /* Crypto_MonitorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto_MonitorUITests.swift; sourceTree = "<group>"; };
 		F4EAF0D02BA1A1B900F127A0 /* Crypto_MonitorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto_MonitorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4EAF0EA2BA1A6AA00F127A0 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		F4EAF0F02BA1A9EE00F127A0 /* BussinessLogicErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BussinessLogicErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EAF0E32BA1A41500F127A0 /* AsyncAlgorithms in Frameworks */,
+				F4EAF0EE2BA1A71A00F127A0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +88,7 @@
 				F4EAF0C32BA1A1B900F127A0 /* Crypto MonitorTests */,
 				F4EAF0CD2BA1A1B900F127A0 /* Crypto MonitorUITests */,
 				F4EAF0AF2BA1A1B800F127A0 /* Products */,
+				F4EAF0EC2BA1A71A00F127A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,9 +105,7 @@
 		F4EAF0B02BA1A1B800F127A0 /* Crypto Monitor */ = {
 			isa = PBXGroup;
 			children = (
-				F4EAF0B12BA1A1B800F127A0 /* Crypto_MonitorApp.swift */,
-				F4EAF0B32BA1A1B800F127A0 /* ContentView.swift */,
-				F4EAF0B52BA1A1B800F127A0 /* Item.swift */,
+				F4EAF0DD2BA1A2B100F127A0 /* App */,
 				F4EAF0B72BA1A1B900F127A0 /* Assets.xcassets */,
 				F4EAF0B92BA1A1B900F127A0 /* Preview Content */,
 			);
@@ -130,6 +137,73 @@
 			path = "Crypto MonitorUITests";
 			sourceTree = "<group>";
 		};
+		F4EAF0DD2BA1A2B100F127A0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F4EAF0E42BA1A52300F127A0 /* App */,
+				F4EAF0E02BA1A33F00F127A0 /* BusinessLogicLayer */,
+				F4EAF0DF2BA1A2CB00F127A0 /* ModelLayer */,
+				F4EAF0DE2BA1A2C600F127A0 /* UILayer */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F4EAF0DE2BA1A2C600F127A0 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				F4EAF0B32BA1A1B800F127A0 /* ContentView.swift */,
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
+		F4EAF0DF2BA1A2CB00F127A0 /* ModelLayer */ = {
+			isa = PBXGroup;
+			children = (
+				F4EAF0B52BA1A1B800F127A0 /* Item.swift */,
+			);
+			path = ModelLayer;
+			sourceTree = "<group>";
+		};
+		F4EAF0E02BA1A33F00F127A0 /* BusinessLogicLayer */ = {
+			isa = PBXGroup;
+			children = (
+				F4EAF0EF2BA1A9E100F127A0 /* Errors */,
+				F4EAF0E92BA1A63700F127A0 /* NetworkLayer */,
+			);
+			path = BusinessLogicLayer;
+			sourceTree = "<group>";
+		};
+		F4EAF0E42BA1A52300F127A0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F4EAF0B12BA1A1B800F127A0 /* CryptoMonitorApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F4EAF0E92BA1A63700F127A0 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				F4EAF0EA2BA1A6AA00F127A0 /* Request.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		F4EAF0EC2BA1A71A00F127A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4EAF0EF2BA1A9E100F127A0 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				F4EAF0F02BA1A9EE00F127A0 /* BussinessLogicErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +220,10 @@
 			dependencies = (
 			);
 			name = "Crypto Monitor";
+			packageProductDependencies = (
+				F4EAF0E22BA1A41500F127A0 /* AsyncAlgorithms */,
+				F4EAF0ED2BA1A71A00F127A0 /* Alamofire */,
+			);
 			productName = "Crypto Monitor";
 			productReference = F4EAF0AE2BA1A1B800F127A0 /* Crypto Monitor.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +296,10 @@
 				Base,
 			);
 			mainGroup = F4EAF0A52BA1A1B800F127A0;
+			packageReferences = (
+				F4EAF0E12BA1A41400F127A0 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
+				F4EAF0E82BA1A60400F127A0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = F4EAF0AF2BA1A1B800F127A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,8 +343,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EAF0B42BA1A1B800F127A0 /* ContentView.swift in Sources */,
+				F4EAF0F12BA1A9EE00F127A0 /* BussinessLogicErrors.swift in Sources */,
+				F4EAF0EB2BA1A6AA00F127A0 /* Request.swift in Sources */,
 				F4EAF0B62BA1A1B800F127A0 /* Item.swift in Sources */,
-				F4EAF0B22BA1A1B800F127A0 /* Crypto_MonitorApp.swift in Sources */,
+				F4EAF0B22BA1A1B800F127A0 /* CryptoMonitorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +676,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4EAF0E12BA1A41400F127A0 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		F4EAF0E82BA1A60400F127A0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4EAF0E22BA1A41500F127A0 /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4EAF0E12BA1A41400F127A0 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
+		};
+		F4EAF0ED2BA1A71A00F127A0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4EAF0E82BA1A60400F127A0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4EAF0A62BA1A1B800F127A0 /* Project object */;
 }

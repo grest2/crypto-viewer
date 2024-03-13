@@ -1,5 +1,5 @@
 //
-//  Crypto_MonitorApp.swift
+//  CryptoMonitorApp.swift
 //  Crypto Monitor
 //
 //  Created by Kiselev Ilya on 13.03.2024.
@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct Crypto_MonitorApp: App {
+struct CryptoMonitorApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
