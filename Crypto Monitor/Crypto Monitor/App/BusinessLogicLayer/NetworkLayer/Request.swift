@@ -53,7 +53,20 @@ class Request<TResult>: IRequstBuilder where TResult: Decodable {
     func execute() async throws -> RequestResult<TResult> {
         guard let url, let method 
         else { throw BussinessLogicErrors.incorrectRequestBuilding }
-        let request = try await withCheckedThrowingContinuation { [self] continuation in
+        
+        let request = try await buildRequest(url: url, method: method)
+        
+        if let data = request.data {
+            let result = try JSONDecoder().decode(TResult.self, from: data)
+            return .success(result)
+        } else {
+            let code = request.response?.statusCode ?? -1
+            return .failure(BussinessLogicErrors.requestError(code: code))
+        }
+    }
+    
+    private func buildRequest(url: URLConvertible, method: HTTPMethod) async throws -> AFDataResponse<Data> {
+        return try await withCheckedThrowingContinuation { [self] continuation in
             session.request(url, method: method, headers: headers).responseData { responseData in
                 if let response = responseData.response {
                     continuation.resume(with: .success(responseData))
@@ -62,13 +75,6 @@ class Request<TResult>: IRequstBuilder where TResult: Decodable {
                     continuation.resume(with: .failure(BussinessLogicErrors.requestError(code: code)))
                 }
             }
-        }
-        if let data = request.data {
-            let result = try JSONDecoder().decode(TResult.self, from: data)
-            return .success(result)
-        } else {
-            let code = request.response?.statusCode ?? -1
-            return .failure(BussinessLogicErrors.requestError(code: code))
         }
     }
 }
