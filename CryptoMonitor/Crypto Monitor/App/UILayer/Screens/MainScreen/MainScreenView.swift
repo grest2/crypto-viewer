@@ -70,6 +70,8 @@ struct MainScreenView: View {
             .background(Colors.primary)
             .listRowInsets(EdgeInsets())
             
+            buyButtons
+            
             ForEach(items, id: \.id) { item in
                 HStack {
                     item.image
@@ -99,7 +101,7 @@ struct MainScreenView: View {
                             .foregroundColor(Colors.textSecondary)
                     }
                 }
-                .listRowBackground(Colors.primary)
+                .listRowBackground(listRowRounding(itemId: item.id))
                 .listRowSeparator(.hidden)
             }
         }
@@ -108,6 +110,32 @@ struct MainScreenView: View {
         .onAppear {
             onAppear()
         }
+    }
+    
+    private var buyButtons: some View {
+        HStack(alignment: .top) {
+            PrimaryButton(
+                buttonTitle: "Buy",
+                imageName: "buy",
+                buttonAction: onBuyButtonTap
+            )
+            
+            Spacer()
+            
+            PrimaryButton(
+                buttonTitle: "Sell",
+                imageName: "sell",
+                buttonAction: onSellButtonTap
+            )
+            
+            Spacer()
+            
+            PrimaryButton(buttonTitle: "Personal\nAccount",
+                          imageName: "person",
+                          buttonAction: onPersonalAccountTap)
+        }
+        .listRowBackground(Colors.background)
+        .listRowSeparator(.hidden)
     }
 }
 
@@ -149,6 +177,60 @@ private extension MainScreenView {
                         (price! as NSDecimalNumber).doubleValue
                      ), 
                      symbol: model.symbol
+        )
+    }
+    
+    func onBuyButtonTap() {
+        print("was tapped buy")
+    }
+    
+    func onSellButtonTap() {
+        print("was tapped sell")
+    }
+    
+    func onPersonalAccountTap() {
+        print("was tapped to personal account")
+    }
+    
+    func listRowRounding(itemId: String) -> some View {
+        guard !items.isEmpty else {
+            return Colors.primary
+                .clipShape(
+                    .rect())
+        }
+        switch itemId {
+        case items.first!.id:
+            return Colors.primary.clipShape(
+                .rect(
+                    topLeadingRadius: 12.0,
+                    bottomLeadingRadius: 0.0,
+                    bottomTrailingRadius: 0.0,
+                    topTrailingRadius: 12.0
+                )
+            )
+        case items.last!.id:
+            return Colors.primary.clipShape(
+                .rect(
+                    topLeadingRadius: 0.0,
+                    bottomLeadingRadius: 12.0,
+                    bottomTrailingRadius: 12.0,
+                    topTrailingRadius: 0.0
+                )
+            )
+        default:
+            return Colors.primary.clipShape(.rect())
+        }
+    }
+    
+    func primaryButtonConfiguration(
+        name: String,
+        icon: String,
+        action: @escaping VoidAction)
+    -> some View {
+        PrimaryButton(
+            buttonTitle: name,
+            imageName: icon,
+            buttonAction: action
         )
     }
 }
