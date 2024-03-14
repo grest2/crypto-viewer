@@ -9,14 +9,26 @@ import SwiftUI
 
 struct RootView: View {
     
+    private enum CurrentTab: Int {
+        
+        case main = 1
+        case shop
+        case account
+        case settings
+    }
+    
+    @State private var currentTab: CurrentTab = .main
+    
     @Environment(DefaultStore<AppState, AppActions>.self) var store
     
     var body: some View {
-        ZStack {
-            tabView
-            
-            if store.state.isLoading {
-                LoaderBlur()
+        NavigationStack {
+            ZStack {
+                tabView
+                
+                if store.state.isLoading {
+                    LoaderBlur()
+                }
             }
         }
     }
@@ -32,6 +44,8 @@ struct RootView: View {
                     )
                 }
                 .toolbarBackground(Colors.background, for: .tabBar)
+                .tag(currentTab.rawValue)
+            
             ContentView()
                 .environment(store)
                 .tabItem {
@@ -40,6 +54,8 @@ struct RootView: View {
                         icon: { Image(systemName: "cart.fill") }
                     )
                 }
+                .tag(currentTab.rawValue)
+            
             ContentView()
                 .environment(store)
                 .tabItem {
@@ -48,6 +64,8 @@ struct RootView: View {
                         icon: { Image(systemName: "person") }
                     )
                 }
+                .tag(currentTab.rawValue)
+            
             ContentView()
                 .environment(store)
                 .tabItem {
@@ -57,6 +75,7 @@ struct RootView: View {
                     )
                 }
                 .background(Color.yellow)
+                .tag(currentTab.rawValue)
         }
         .accentColor(Colors.selected)
     }
