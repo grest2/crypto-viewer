@@ -115,6 +115,7 @@ struct MainScreenView: View {
             onAppear()
         }
         .onReceive(timer) { _ in
+            print("_LOG_ _MainScreenView_: timer update works")
             Task {
                 try await fetchCurrencies()
             }
@@ -172,6 +173,7 @@ private extension MainScreenView {
     
     func fetchCurrencies() async throws {
         let result = try await cryptoService.fetch(url: "https://api.coincap.io/v2/assets", result: ApiResponse<[CryptoCurrencyModel]>.self).get()
+        print("_LOG_ _MainScreenView_: currencies fetched: \(result.data)")
         store.send(action: .mainScreenAction(action: .fetchCurrencies(currencies: result.data)))
     }
     
