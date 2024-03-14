@@ -7,6 +7,8 @@
 
 final class AppState: IState {
     
+    var isLoading: Bool = false
+    
     var mainScreenState: MainScreenState
     
     init() {

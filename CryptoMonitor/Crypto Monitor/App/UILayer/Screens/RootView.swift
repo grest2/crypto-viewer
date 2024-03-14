@@ -12,6 +12,16 @@ struct RootView: View {
     @Environment(DefaultStore<AppState, AppActions>.self) var store
     
     var body: some View {
+        ZStack {
+            tabView
+            
+            if store.state.isLoading {
+                LoaderBlur()
+            }
+        }
+    }
+    
+    private var tabView: some View {
         TabView {
             MainScreenView()
                 .environment(store)

@@ -40,6 +40,9 @@ fileprivate func appReducer(appState: AppState, appAction: AppActions) -> AppSta
     case .mainScreenAction(let action):
         appState.mainScreenState = mainScreenReducer(mainScreenState: appState.mainScreenState, mainScreenAction: action)
         return appState
+    case .setLoading(loading: let loading):
+        appState.isLoading = loading
+        return appState
     }
 }
 

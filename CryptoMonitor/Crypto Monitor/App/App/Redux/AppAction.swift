@@ -8,4 +8,6 @@
 enum AppActions: Action {
     
     case mainScreenAction(action: MainScreenActions)
+    
+    case setLoading(loading: Bool)
 }
