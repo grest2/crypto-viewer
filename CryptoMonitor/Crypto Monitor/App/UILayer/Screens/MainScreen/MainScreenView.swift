@@ -140,9 +140,11 @@ struct MainScreenView: View {
             
             Spacer()
             
-            PrimaryButton(buttonTitle: "Personal\nAccount",
-                          imageName: "person",
-                          buttonAction: onPersonalAccountTap)
+            PrimaryButton(
+                buttonTitle: "Personal\nAccount",
+                imageName: "person",
+                buttonAction: onPersonalAccountTap
+            )
         }
         .listRowBackground(Colors.background)
         .listRowSeparator(.hidden)
