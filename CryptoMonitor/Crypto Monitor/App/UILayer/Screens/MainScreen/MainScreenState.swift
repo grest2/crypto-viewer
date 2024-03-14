@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - MainScreenState
 final class MainScreenState: IState {
     
     var favouriteCurrencies: [CryptoCurrencyModel]

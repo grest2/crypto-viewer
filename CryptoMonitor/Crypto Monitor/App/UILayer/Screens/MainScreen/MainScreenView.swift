@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import Observation
 
+// MARK: - MainScreenView
 struct MainScreenView: View {
     
     // MARK: Item
@@ -18,8 +19,10 @@ struct MainScreenView: View {
         let name: String
         let image: Image
         let usdPrice: String
+        let symbol: String
     }
     
+    // MARK: Props
     @Environment(DefaultStore<AppState, AppActions>.self) var store
     
     @State private var items: [Item]
@@ -28,41 +31,62 @@ struct MainScreenView: View {
     
     private let cryptoService: any ICryptoMonitorService = CryptoMonitorService()
     
+    // MARK: - Init
     init(items: [Item] = [], favouriteItems: [Item] = []) {
         _items = State(initialValue: items)
         _favouriteItems = State(initialValue: favouriteItems)
     }
     
     var body: some View {
-        VStack {
-            VStack(alignment: .leading) {
-                Text("Your favourite currencies")
-                    .bold()
-                    .font(.title2)
-                    .padding(.top, 18.0)
-                    .padding(.leading, 8.0)
-                    .foregroundColor(.white)
-                
-                ScrollView(.horizontal) {
-                    LazyHStack {
-                        ForEach(favouriteItems, id: \.id) { item in
-                            Image("default_currency_icon")
+        List {
+            Section {
+                VStack(alignment: .leading) {
+                    Text("Your favourite currencies:")
+                        .bold()
+                        .font(.title2)
+                        .padding(.top, 18.0)
+                        .padding(.leading, 8.0)
+                        .foregroundColor(Colors.textPrimary)
+                    
+                    ScrollView(.horizontal) {
+                        LazyHStack {
+                            ForEach(favouriteItems, id: \.id) { item in
+                                VStack(alignment: .center) {
+                                    Image("default_currency_icon")
+                                    
+                                    Text(item.symbol)
+                                        .font(.body)
+                                        .foregroundColor(Colors.textSecondary)
+                                }
+                                .padding(.leading, 8.0)
+                            }
                         }
                     }
+                    .background(Colors.primary)
                 }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 12)
             }
-            .background(Color(red: 0.15, green: 0.15, blue: 0.15)
-                .cornerRadius(12.0))
-            .padding(.all, 24.0)
+            .background(Colors.primary)
+            .listRowInsets(EdgeInsets())
             
-            List(items, id: \.id) { item in
+            ForEach(items, id: \.id) { item in
                 HStack {
                     item.image
                     
-                    Text(item.name)
-                        .bold()
-                        .font(.body)
-                        .padding([.leading], 16.0)
+                    VStack(alignment: .leading) {
+                        Text(item.name)
+                            .bold()
+                            .font(.body)
+                            .padding(.leading, 8.0)
+                            .foregroundColor(Colors.textSecondary)
+                        
+                        Text(item.symbol)
+                            .font(.body)
+                            .padding(.leading, 8.0)
+                            .foregroundColor(Colors.textSecondary)
+                    }
+                    
                     
                     Spacer()
                     
@@ -72,14 +96,15 @@ struct MainScreenView: View {
                         Text(item.usdPrice + " " + "$")
                             .padding(.bottom, 16.0)
                             .font(.callout)
+                            .foregroundColor(Colors.textSecondary)
                     }
                 }
-                .listRowBackground(Color.init(red: 0.64, green: 0.69, blue: 0.64, opacity: 1.0))
+                .listRowBackground(Colors.primary)
                 .listRowSeparator(.hidden)
             }
-            .scrollContentBackground(.hidden)
         }
-        .background(Color.init(red: 0.34, green: 0.49, blue: 0.34, opacity: 1.0))
+        .scrollContentBackground(.hidden)
+        .background(Colors.background.edgesIgnoringSafeArea(.all))
         .onAppear {
             onAppear()
         }
@@ -93,23 +118,18 @@ private extension MainScreenView {
         Task {
            try await fetchCurrencies()
         }
+        currenciesTracking()
+    }
+    
+    func currenciesTracking() {
         _ = withObservationTracking {
-            return store.state.mainScreenState
+            return store.state.mainScreenState.currencies
         } onChange: {
             items = store.state.mainScreenState
-                .currencies.map {
-                    let formatter = NumberFormatter()
-                    formatter.numberStyle = .decimal
-                    let price = Decimal(string: $0.priceUsd)
-                    return .init(id: $0.id,
-                                 name: $0.name,
-                                 image: .init("default_currency_icon"),
-                                 usdPrice: String(
-                                    format: "%.2f",
-                                    (price! as NSDecimalNumber).doubleValue
-                                 )
-                    )
-                }
+                .currencies.map(itemMapper(from:))
+            if !items.isEmpty {
+                favouriteItems = [items[0], items[1], items[2]]
+            }
         }
     }
     
@@ -117,16 +137,31 @@ private extension MainScreenView {
         let result = try await cryptoService.fetch(url: "https://api.coincap.io/v2/assets", result: ApiResponse<[CryptoCurrencyModel]>.self).get()
         store.send(action: .mainScreenAction(action: .fetchCurrencies(currencies: result.data)))
     }
+    
+    func itemMapper(from model: CryptoCurrencyModel) -> Item {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let price = Decimal(string: model.priceUsd)
+        return .init(id: model.id,
+                     name: model.name,
+                     image: .init("default_currency_icon"),
+                     usdPrice: String(
+                        format: "%.2f",
+                        (price! as NSDecimalNumber).doubleValue
+                     ), 
+                     symbol: model.symbol
+        )
+    }
 }
 
 // MARK: - Preview
 #Preview {
     MainScreenView(
         items: [
-            .init(id: "01", name: "bitcoin", image: .init("default_currency_icon"), usdPrice: "24")
+            .init(id: "BTC", name: "bitcoin", image: .init("default_currency_icon"), usdPrice: "24", symbol: "BTC")
         ],
         favouriteItems: [
-            .init(id: "01", name: "bitcoin", image: .init("default_currency_icon"), usdPrice: "24")
+            .init(id: "BTC", name: "bitcoin", image: .init("default_currency_icon"), usdPrice: "24", symbol: "BTC")
         ]
     )
     .environment(DefaultStore<AppState, AppActions>(reducer: mockReducer, state: .init()))

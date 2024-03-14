@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+// MARK: - CryptoMonitorApp
 @main
 struct CryptoMonitorApp: App {
     
@@ -28,12 +29,12 @@ struct CryptoMonitorApp: App {
         WindowGroup {
             MainScreenView()
                 .environment(DefaultStore<AppState, AppActions>(reducer: appReducer(appState:appAction:), state: .init()))
-                .background(Color.init(red: 0.64, green: 0.69, blue: 0.64, opacity: 1.0))
         }
         .modelContainer(sharedModelContainer)
     }
 }
 
+// MARK: - AppReducer
 fileprivate func appReducer(appState: AppState, appAction: AppActions) -> AppState {
     switch appAction {
     case .mainScreenAction(let action):
@@ -42,6 +43,7 @@ fileprivate func appReducer(appState: AppState, appAction: AppActions) -> AppSta
     }
 }
 
+// MARK: - MainScreenReducer
 fileprivate func mainScreenReducer(mainScreenState: MainScreenState, mainScreenAction: MainScreenActions) -> MainScreenState {
     switch mainScreenAction {
     case .none:
@@ -50,8 +52,8 @@ fileprivate func mainScreenReducer(mainScreenState: MainScreenState, mainScreenA
         mainScreenState.currencies = currencies
     case .selectCurrency(let id):
         mainScreenState.selectedCurrency = mainScreenState.currencies.first(where: { $0.id == id })
-    case .updateCurrencies:
-        mainScreenState.currencies = []
+    case .updateCurrencies(let currencies):
+        mainScreenState.favouriteCurrencies = currencies
     case .searchCurrency(let text):
         mainScreenState.currencies = mainScreenState.currencies.filter { $0.name.contains(text) }
     }
