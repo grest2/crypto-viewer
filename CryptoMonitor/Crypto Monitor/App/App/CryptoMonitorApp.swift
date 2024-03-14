@@ -27,7 +27,7 @@ struct CryptoMonitorApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainScreenView()
+            RootView()
                 .environment(DefaultStore<AppState, AppActions>(reducer: appReducer(appState:appAction:), state: .init()))
         }
         .modelContainer(sharedModelContainer)

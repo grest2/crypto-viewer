@@ -32,6 +32,10 @@ struct MainScreenView: View {
     
     @State private var favouriteItems: [Item]
     
+    private let timer = Timer.publish(
+        every: 60.0, on: .main, in: .common
+    ).autoconnect()
+    
     private let cryptoService: any ICryptoMonitorService = CryptoMonitorService()
     
     // MARK: - Init
@@ -110,6 +114,11 @@ struct MainScreenView: View {
         .onAppear {
             onAppear()
         }
+        .onReceive(timer) { _ in
+            Task {
+                try await fetchCurrencies()
+            }
+        }
     }
     
     private var buyButtons: some View {
@@ -144,7 +153,7 @@ private extension MainScreenView {
     
     func onAppear() {
         Task {
-           try await fetchCurrencies()
+            try await fetchCurrencies()
         }
         currenciesTracking()
     }

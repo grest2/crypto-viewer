@@ -14,4 +14,6 @@ enum Colors {
     
     static let textPrimary = Color(red: 0.878, green: 0.878, blue: 0.878, opacity: 1.0)
     static let textSecondary = Color(red: 0.74, green: 0.74, blue: 0.74, opacity: 1.0)
+    
+    static let selected = Color(red: 0, green: 0.376, blue: 0.392)
 }
