@@ -39,11 +39,25 @@ fileprivate func appReducer(appState: AppState, appAction: AppActions) -> AppSta
     switch appAction {
     case .mainScreenAction(let action):
         appState.mainScreenState = mainScreenReducer(mainScreenState: appState.mainScreenState, mainScreenAction: action)
-        return appState
+    case .shopsScreenAction(action: let action):
+        appState.shopsScreenState = shopsScreenReducer(shopsScreenState: appState.shopsScreenState, shopsScreenAction: action)
     case .setLoading(loading: let loading):
         appState.isLoading = loading
-        return appState
     }
+    return appState
+}
+
+// MARK: - ShopsScreenReducer
+fileprivate func shopsScreenReducer(shopsScreenState: ShopsScreenState, shopsScreenAction: ShopsScreenActions) -> ShopsScreenState {
+    switch shopsScreenAction {
+    case .none:
+        break
+    case .fetchShops(let shops):
+        return ShopsScreenState(shops: shops)
+    case .selectShop(let id):
+        shopsScreenState.selectedShopId = id
+    }
+    return shopsScreenState
 }
 
 // MARK: - MainScreenReducer

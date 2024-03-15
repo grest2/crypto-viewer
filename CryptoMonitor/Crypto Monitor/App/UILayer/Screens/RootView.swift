@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - RootView
 struct RootView: View {
     
     private enum CurrentTab: Int {
@@ -46,11 +47,11 @@ struct RootView: View {
                 .toolbarBackground(Colors.background, for: .tabBar)
                 .tag(currentTab.rawValue)
             
-            ContentView()
+            ShopsScreenView()
                 .environment(store)
                 .tabItem {
                     Label(
-                        title: { Text("Shop") },
+                        title: { Text("Shops") },
                         icon: { Image(systemName: "cart.fill") }
                     )
                 }

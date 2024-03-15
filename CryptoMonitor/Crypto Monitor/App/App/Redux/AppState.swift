@@ -7,11 +7,13 @@
 
 final class AppState: IState {
     
+    var mainScreenState: MainScreenState
+    var shopsScreenState: ShopsScreenState
+    
     var isLoading: Bool = false
     
-    var mainScreenState: MainScreenState
-    
     init() {
-        self.mainScreenState = .init(favouriteCurrencies: [], currencies: [])
+        mainScreenState = .init(favouriteCurrencies: [], currencies: [])
+        shopsScreenState = .init()
     }
 }

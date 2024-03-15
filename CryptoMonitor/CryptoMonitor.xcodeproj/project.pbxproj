@@ -17,6 +17,11 @@
 		F4BEE9E32BA1E18E00D3583D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BEE9E22BA1E18E00D3583D /* AppState.swift */; };
 		F4BEE9E52BA1E1D800D3583D /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BEE9E42BA1E1D800D3583D /* AppAction.swift */; };
 		F4BEE9E72BA2197900D3583D /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BEE9E62BA2197900D3583D /* ApiResponse.swift */; };
+		F4D6527D2BA4865000107DE0 /* CryptoShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6527C2BA4865000107DE0 /* CryptoShopModel.swift */; };
+		F4D6527F2BA4956C00107DE0 /* ShopProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6527E2BA4956C00107DE0 /* ShopProvider.swift */; };
+		F4D652812BA4979600107DE0 /* ShopsScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D652802BA4979600107DE0 /* ShopsScreenState.swift */; };
+		F4D652832BA497EA00107DE0 /* ShopsScreenActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D652822BA497EA00107DE0 /* ShopsScreenActions.swift */; };
+		F4D652852BA4981E00107DE0 /* ShopsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D652842BA4981E00107DE0 /* ShopsScreenView.swift */; };
 		F4E5297C2BA2E27A005EC54F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5297B2BA2E27A005EC54F /* Colors.swift */; };
 		F4E5297F2BA2F26A005EC54F /* SecondTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5297E2BA2F26A005EC54F /* SecondTitleModifier.swift */; };
 		F4E529822BA2F2EB005EC54F /* SecondaryTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E529812BA2F2EB005EC54F /* SecondaryTextModifier.swift */; };
@@ -69,6 +74,11 @@
 		F4BEE9E22BA1E18E00D3583D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F4BEE9E42BA1E1D800D3583D /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		F4BEE9E62BA2197900D3583D /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		F4D6527C2BA4865000107DE0 /* CryptoShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoShopModel.swift; sourceTree = "<group>"; };
+		F4D6527E2BA4956C00107DE0 /* ShopProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProvider.swift; sourceTree = "<group>"; };
+		F4D652802BA4979600107DE0 /* ShopsScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsScreenState.swift; sourceTree = "<group>"; };
+		F4D652822BA497EA00107DE0 /* ShopsScreenActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsScreenActions.swift; sourceTree = "<group>"; };
+		F4D652842BA4981E00107DE0 /* ShopsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsScreenView.swift; sourceTree = "<group>"; };
 		F4E5297B2BA2E27A005EC54F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F4E5297E2BA2F26A005EC54F /* SecondTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTitleModifier.swift; sourceTree = "<group>"; };
 		F4E529812BA2F2EB005EC54F /* SecondaryTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTextModifier.swift; sourceTree = "<group>"; };
@@ -143,6 +153,7 @@
 		F4BEE9D72BA1DF0200D3583D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F4D652792BA4794B00107DE0 /* ShopsScreen */,
 				F4BEE9D82BA1DF0E00D3583D /* MainScreen */,
 				F4E5298A2BA31B9D005EC54F /* RootView.swift */,
 			);
@@ -166,6 +177,16 @@
 				F4BEE9E42BA1E1D800D3583D /* AppAction.swift */,
 			);
 			path = Redux;
+			sourceTree = "<group>";
+		};
+		F4D652792BA4794B00107DE0 /* ShopsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F4D652802BA4979600107DE0 /* ShopsScreenState.swift */,
+				F4D652822BA497EA00107DE0 /* ShopsScreenActions.swift */,
+				F4D652842BA4981E00107DE0 /* ShopsScreenView.swift */,
+			);
+			path = ShopsScreen;
 			sourceTree = "<group>";
 		};
 		F4E5297A2BA2E26A005EC54F /* Utilites */ = {
@@ -305,6 +326,7 @@
 				F4EAF0B52BA1A1B800F127A0 /* Item.swift */,
 				F4EAF0F42BA1B51F00F127A0 /* CryptoCurrencyModel.swift */,
 				F4BEE9E62BA2197900D3583D /* ApiResponse.swift */,
+				F4D6527C2BA4865000107DE0 /* CryptoShopModel.swift */,
 			);
 			path = ModelLayer;
 			sourceTree = "<group>";
@@ -315,6 +337,7 @@
 				F4EAF0EF2BA1A9E100F127A0 /* Errors */,
 				F4EAF0E92BA1A63700F127A0 /* NetworkLayer */,
 				F4EAF0F22BA1B3EB00F127A0 /* CryptoMonitorService.swift */,
+				F4D6527E2BA4956C00107DE0 /* ShopProvider.swift */,
 			);
 			path = BusinessLogicLayer;
 			sourceTree = "<group>";
@@ -496,6 +519,8 @@
 				F4BEE9D22BA1DE6100D3583D /* State.swift in Sources */,
 				F4BEE9D32BA1DE6100D3583D /* Action.swift in Sources */,
 				F4BEE9D42BA1DE6100D3583D /* Store.swift in Sources */,
+				F4D6527F2BA4956C00107DE0 /* ShopProvider.swift in Sources */,
+				F4D652812BA4979600107DE0 /* ShopsScreenState.swift in Sources */,
 				F4EAF0B42BA1A1B800F127A0 /* ContentView.swift in Sources */,
 				F4EAF0F52BA1B51F00F127A0 /* CryptoCurrencyModel.swift in Sources */,
 				F4BEE9E32BA1E18E00D3583D /* AppState.swift in Sources */,
@@ -506,8 +531,11 @@
 				F4E529922BA33201005EC54F /* LoaderBlur.swift in Sources */,
 				F4BEE9E72BA2197900D3583D /* ApiResponse.swift in Sources */,
 				F4E5298D2BA328F8005EC54F /* Loader.swift in Sources */,
+				F4D6527D2BA4865000107DE0 /* CryptoShopModel.swift in Sources */,
+				F4D652832BA497EA00107DE0 /* ShopsScreenActions.swift in Sources */,
 				F4EAF0EB2BA1A6AA00F127A0 /* Request.swift in Sources */,
 				F4BEE9E02BA1E02700D3583D /* MainScreenView.swift in Sources */,
+				F4D652852BA4981E00107DE0 /* ShopsScreenView.swift in Sources */,
 				F4EAF0B62BA1A1B800F127A0 /* Item.swift in Sources */,
 				F4EAF0B22BA1A1B800F127A0 /* CryptoMonitorApp.swift in Sources */,
 				F4E5297F2BA2F26A005EC54F /* SecondTitleModifier.swift in Sources */,

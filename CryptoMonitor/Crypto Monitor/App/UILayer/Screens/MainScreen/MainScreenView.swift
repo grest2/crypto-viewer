@@ -117,6 +117,7 @@ struct MainScreenView: View {
         }
         .onReceive(timer) { _ in
             print("_LOG_ _MainScreenView_: timer update works")
+            
             Task {
                 store.send(action: .setLoading(loading: true))
                 try await fetchCurrencies()
@@ -268,6 +269,6 @@ private extension MainScreenView {
     .environment(DefaultStore<AppState, AppActions>(reducer: mockReducer, state: .init()))
 }
 
-fileprivate func mockReducer(appState: AppState, appActions: AppActions) -> AppState {
+func mockReducer(appState: AppState, appActions: AppActions) -> AppState {
     return appState
 }
